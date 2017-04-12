@@ -1,0 +1,18 @@
+<h1>Name table with occurences</h1>
+
+
+<h1>Listing Books</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Occurence</th>
+  </tr>
+ 
+<% @scored_names.each do |name, score| %>
+  <tr>
+    <td><%= name %></td>
+    <td><%= score %></td>
+  </tr>
+<% end %>
+</table>

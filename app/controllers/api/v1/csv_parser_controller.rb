@@ -6,7 +6,6 @@ class Api::V1::CsvParserController < ApplicationController
 
   def filter_first_name
     first_names = []
-
     CSV.parse(request.raw_post).each do |id, first_name, last_name|
       first_names << first_name
     end
@@ -15,6 +14,19 @@ class Api::V1::CsvParserController < ApplicationController
     render :json => msg
   end
 
+  def read_csv
+    names = []
+    csv_file = params[:csv_file]
+    CSV.read(csv_file.path).each do |name|
+      names << name[0]
+    end
+
+    @scored_names = check_name_occurance(names)
+    render template: "portal/show_table"
+  end
+
+  # Function to count occurence of each names, and eliminates if
+  # count is equal to or less than 1
   def check_name_occurance(first_names)
     temp_hash = Hash.new(0)
     first_names.each { |v| temp_hash.store(v, temp_hash[v]+1) }
@@ -26,4 +38,5 @@ class Api::V1::CsvParserController < ApplicationController
       end
     end
   end
+
 end

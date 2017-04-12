@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Platform Versions
 
-Things you may want to cover:
+```bash
+ruby -version
+ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
+```
 
-* Ruby version
+```bash
+rails --version
+Rails 5.0.2
+```
 
-* System dependencies
+## API Endpoints
 
-* Configuration
+For task 1:
+----------
 
-* Database creation
+*Route* :
 
-* Database initialization
+api_v1_csv_parser_filter_first_name | POST | /api/v1/csv_parser/filter_first_name(.:format) | api/v1/csv_parser#filter_first_name
 
-* How to run the test suite
+*Summary*:
 
-* Services (job queues, cache servers, search engines, etc.)
+I am using postman to submit the csv file as test are not completed. Sample csv file is located at
+```test/sample.csv```
 
-* Deployment instructions
+HTTP Request sample is
+```bash
+curl -X POST \
+  http://localhost:3000/api/v1/csv_parser/filter_first_name \
+  -H 'content-type: application/x-www-form-urlencoded' \
+```
 
-* ...
+
+For Task 2:
+--------
+
+visit [PortalPage](http://localhost:3000/portal/csv_portal) 
+
+The sample file that i am using is
+```
+test/sample2.csv
+```
+
