@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'csv_parser/filter_name'
-
+  namespace :api do
+    namespace :v1 do
+      post 'csv_parser/filter_first_name'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
